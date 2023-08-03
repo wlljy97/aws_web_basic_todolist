@@ -23,17 +23,20 @@
                     
                 </ul>
             </aside>
+         
+            <!-- invisible을 welcome-page-container뒤에 붙이면 화면 실행 시 welcome-page-container가 나오고
+            todolist-page-container invisible 뒤에 붙이면 todolist-page-container invisible가 나온다. -->
+            <!-- common.css 에서 invisivle을 display: none !important; 해놔서 invisible의 있으면 안나오고 없으면 나온다. -->
             <main class="main-container">
-                <div class="welcome-page-container invisible">
-                    <!-- common.css 에서 invisivle을 display: none !important; 해놔서 invisible의 있으면 안나오고 없으면 나온다. -->
+                <div class="welcome-page-container ">   
                     <h1 class="welcome-page-title">TODOLIST</h1>
-                    <button class="write-link-button">Go to write</button>
+                    <button class="write-link-button" onclick="goToWriteOnClickHandle();">Go to write</button>
                 </div>
-                <div class="todolist-page-container">
+                <div class="todolist-page-container invisible">
                     <header>
                         <div class="todolist-header-items">
                             <input type="text" class="text-input w-f" placeholder="Please enter todo...">
-                            <!--  placeholder 입력칸에 표시-->
+                            <!--  placeholder : 입력칸에 표시-->
                         </div>
                         <div class="todolist-header-items">
                             <button class="btn w-f">추가</button>
@@ -64,5 +67,6 @@
     <script src="./js/index.js"></script>
     <script src="./js/routes.js"></script>
     <script src="./js/sidebar.js"></script>
+    <script src="./js/welcome.js"></script>
 </body>
 </html>
