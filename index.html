@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+    <!-- <title>Todolist</title> -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,11 +36,12 @@
                 <div class="todolist-page-container invisible">
                     <header>
                         <div class="todolist-header-items">
-                            <input type="text" class="text-input w-f" placeholder="Please enter todo...">
+                            <input type="text" class="text-input w-f" placeholder="Please enter todo..."
+                            onkeyup="addTodoOnKeyUpHandle(event);">
                             <!--  placeholder : 입력칸에 표시-->
                         </div>
                         <div class="todolist-header-items">
-                            <button class="btn w-f">추가</button>
+                            <button class="btn w-f" onclick="addTodoButtonOnClickHandle();">추가</button>
                         </div>
                     </header>
                         <ul class="todolist-main-container">
@@ -64,9 +66,12 @@
             </main>
         </div>
     </div>
+    <!-- 랜더링 되서 js 파일이 하나가 됨 -->
     <script src="./js/index.js"></script>
+    <script src="./js/utils.js"></script>
     <script src="./js/routes.js"></script>
     <script src="./js/sidebar.js"></script>
     <script src="./js/welcome.js"></script>
+    <script src="./js/todolist.js"></script>
 </body>
 </html>
