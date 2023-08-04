@@ -22,7 +22,7 @@ const addTodoButtonOnClickHandle = () => { // 추가버튼 클릭 했을때
     // const testArray2 = [...testArray, 6,7,8];
     // console.log(testArray2);
 
-        generateTodoObj();
+    generateTodoObj();
 }
 
 const addTodoOnKeyUpHandle = (event) => {
@@ -33,6 +33,11 @@ const addTodoOnKeyUpHandle = (event) => {
 
 const checkedOnChangeHandle = (target) => {
     TodoListService.getInstance().setCompleStatus(target.value, target.checked);
+}
+
+const modifyTodoOnClickHandle = (target) => {
+    openModal();
+    modifyModal(TodoListService.getInstance().getTodoById(target.value));
 }
 
 const deleteTodoOnClickHandle = (target) => {
@@ -46,7 +51,7 @@ const generateTodoObj = () => {
         id: 0,
         todoContent: todoContent,
         createDate: DateUtils.toStringByFormatting(new Date()),
-        compleStatus : false
+        completStatus: false
     };
     
 
@@ -76,12 +81,19 @@ class TodoListService {
     loadTodoList() {
         this.todoList = !!localStorage.getItem("todoList") ? JSON.parse(localStorage.getItem("todoList")) : new Array();
         // localStorage :초기화를 한 뒤 원래 기록(저장)된 값들과 같이 나온다.
-        this.todoIndex = !!this.todoList[this.todoList.lenght - 1]?.id ? this.todoList[this.todoList.length -1].id + 1 : 1; // 삼항 연산자
+        this.todoIndex = !!this.todoList[this.todoList.length - 1]?.id ? this.todoList[this.todoList.length -1].id + 1 : 1; // 삼항 연산자
         // id 값이 있으면 true, 없으면 false
     }
 
     saveLocalStorage() {
         localStorage.setItem("todoList", JSON.stringify(this.todoList));
+    }
+
+    getTodoById(id) {
+        // console.log(this.todoList);
+        // console.log(this.todoList.filter(todo => todo.id === parseInt(id)));
+        // console.log(this.todoList.filter(todo => todo.id === parseInt(id))[0]);
+        return this.todoList.filter(todo => todo.id === parseInt(id))[0];
     }
 
     addTodo(todoObj) { //오브젝트 객체 만드는 것
@@ -113,6 +125,19 @@ class TodoListService {
         });
 
         this.saveLocalStorage();
+    }
+
+    setTodo(todoObj) {
+      for(let i = 0; i < this.todoList.length; i++) {
+        if(this.todoList[i].id === todoObj.id) {
+            this.todoList[i] = todoObj;
+            break;
+        }
+      }
+        this.saveLocalStorage();
+
+        this.updateTodoList();
+        
     }
 
     removeTodo(id) {

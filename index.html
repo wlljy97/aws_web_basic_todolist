@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <link rel="stylesheet" href="./css/sidebar.css">
     <link rel="stylesheet" href="./css/welcome.css">
     <link rel="stylesheet" href="./css/todolist.css">
@@ -45,31 +46,36 @@
                         </div>
                     </header>
                         <ul class="todolist-main-container">
-                            <li class="todolist-items">
-                                <div class="item-left">
-                                    <input type="checkbox" id="complet-chkbox1" class="complet-chkboxs">
-                                    <label for="complet-chkbox1"></label>
-                                </div>
-                                <div class="item-center">
-                                    <pre class="todolist-content">오늘 할 일을 출력합니다.</pre>
-                                </div>
-                                <div class="item-right">
-                                    <p class="todolist-date">2023-08-03</p>
-                                    <div class="todolist-item-buttons">
-                                        <button class="btn btn-edit">수정</button>
-                                        <button class="btn btn-remove">삭제</button>
-                                    </div>
-                                </div>
-                            </li>
+                            
                         </ul>
                 </div>
             </main>
+            <div class="modal invisible">
+                <div class="modal-container">
+                    <header class="modal-header">
+                        <h1 class="modal-title">
+                            제목
+                        </h1>
+                    </header>
+                    <main class="modal-main">
+                        <p class="modal-message">
+                            메세지 내용
+                        </p>
+                        <input type="text" class="text-input w-f">
+                    </main>
+                    <footer class="modal-footer">
+                        <button class="btn">확인</button>
+                        <button class="btn">닫기</button>
+                    </footer>
+                </div>
+            </div>
         </div>
     </div>
     <!-- 랜더링 되서 js 파일이 하나가 됨 -->
     <script src="./js/index.js"></script>
     <script src="./js/utils.js"></script>
     <script src="./js/routes.js"></script>
+    <script src="./js/modal.js"></script>
     <script src="./js/sidebar.js"></script>
     <script src="./js/welcome.js"></script>
     <script src="./js/todolist.js"></script>

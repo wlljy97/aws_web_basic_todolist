@@ -1,0 +1,62 @@
+.modal {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #000000bb;
+}
+
+.modal-container {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+
+.modal-header {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px 20px;
+    width: 300px;
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.modal-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 20px 20px;
+    width: 300px;
+}
+
+.modal-message {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    word-wrap: break-word; /* break-word : 자동으로 줄바꿈*/
+}
+
+.modal-main > *:not(.model-main :nth-last-child(1)){
+    margin-bottom: 10px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end; /* 우측으로 몰아줌*/
+    align-items: center;
+    padding: 5px 20px;
+    width: 300px;
+}
+
+.modal-footer .btn:not(.modal-footer .btn:nth-last-child(1)) { /* 마지막 버튼 빼고는 마진을 준다.*/
+    margin-right: 5px;
+}
